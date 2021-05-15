@@ -2,13 +2,17 @@
 
 {% block title %}Update{% endblock title %}
 {% block body %}
-    <a href="{% url 'tasks' %}">Go Back</a>
-    <div class="container">
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
-            <!--.as_p allows to beautify the form automatically-->
-            <input type="submit" value="Add Task" id="">
-        </form>
-    </div>
+
+<div class="header-bar">
+    <a href="{% url 'tasks' %}"><i class="fa fa-arrow-left"></i> Back</a>
+</div>
+
+<div class="update-form-wrapper">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <!--.as_p allows to beautify the form automatically-->
+        <input type="submit" value="Add Task" class="button">
+    </form>
+</div>
 {% endblock body %}

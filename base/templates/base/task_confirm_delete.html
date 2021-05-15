@@ -2,10 +2,14 @@
 
 {% block title %}Delete{% endblock title %}
 {% block body %}
-    <a href="{% url 'tasks' %}">Go Back</a>
+<div class="header-bar">
+    <a href="{% url 'tasks' %}"><i class="fa fa-arrow-left"></i> Back</a>
+</div>
+<div class="delete-form-wrapper">
     <form action="" method="POST">
         {% csrf_token %}
-        <p>Are you sure you want to delete "{{task}}"</p>
-        <input type="submit" value="Delete">
+        <p>Are you sure you want to delete "{{task}}" ?</p>
+        <button type="submit" class="button"><i class="fa fa-trash"></i></button>
     </form>
+</div>
 {% endblock body %}

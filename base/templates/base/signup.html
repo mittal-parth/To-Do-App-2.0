@@ -2,10 +2,15 @@
 
 {% block title %}Login{% endblock title %}
 {% block body %}
+
+<div class="header-bar"><h2>Sign Up</h2></div>
+<div class="update-form-wrapper">
     <form action="" method="POST">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Sign Up">
+        <input type="submit" value="Sign Up" class="button">
     </form>
-    <p>Already have an account? <a href="{% url 'login' %}"> Login</a></p>
+    <p>Already have an account? <a href="{% url 'login' %}"> <i>Login</i></a></p>
+</div>
+
 {% endblock body %}

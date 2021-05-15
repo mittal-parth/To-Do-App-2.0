@@ -2,46 +2,58 @@
 
 {% block title %}Task List{% endblock title %}
 {% block body %}
+<div class="header-bar">
+    <div>
+        <h1>Hello, {{request.user|title}}</h1>
+        <!--|titile capitalizes the first letter-->
+        <h3 style="margin:0">You have <i>{{count}}</i> incomplete task{{ count|pluralize:"s"}}</h3>
+        <!--last part appends an s to 'task' if count > 1-->
+    </div>
     {% if request.user.is_authenticated%}
-    <p>Hi, {{request.user}}</p>
     <a href="{% url 'logout' %}">Logout</a>
     {% else %}
     <a href="{% url 'login' %}">Login</a>
     {% endif %}
-    <hr>
-    <div class="container">
-        <form action="" method="GET">
-            <!-- value = “{{search_input}}” allows us to keep the last data that was searched for, in the text box-->
-            <input type="text" name="search_area" value="{{search_input}}">
-            <input type="submit" value="Search">
-        </form>
-        <a href="{% url 'task-create' %}">Add Task</a>
-        <table>
-            <tr>
-                <th>Items</th>
-                <th></th>
-                <th></th>
-            </tr>
-            {% for task in tasks %}
-            <!--'tasks' is the context_object_name in the model-->
+</div>
 
-            <tr>
-                {% if task.complete == True %}
 
-                <td><strike>{{task.title}}</strike></td>
+<div id="search-add-wrapper">
+    <form id="input-form" action="" method="GET">
+        <!-- value = “{{search_input}}” allows us to keep the last data that was searched for, in the text box-->
+        <input type="text" name="search_area" value="{{search_input}}">
+        <button class = "button" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <a id="add-link" href="{% url 'task-create' %}"><i class="fa fa-plus-circle"></i></a>
+</div>
 
-                {% else %}
-                <td>{{task.title}}</td>
+
+<div class="task-items-wrapper">
+    {% for task in tasks %}
+    <div class="task-wrapper">
+        {% if task.complete == True %}
+
+        <div class="task-title">
+            <div class="task-complete-icon"></div>
+            <i><s><a href="{% url 'task-update' task.id %}">{{task}}</a></s></i>
+
+        </div>
+        <a class="delete-link" href="{% url 'task-delete' task.id %}"><i class="fa fa-trash"></i>
+
+            {% else %}
+            <div class="task-title">
+                <div class="task-incomplete-icon"></div>
+                <a href="{% url 'task-update' task.id %}">{{task}}</a>
+            </div>
+            <a class="delete-link" href="{% url 'task-delete' task.id %}"><i class="fa fa-trash"></i>
                 {% endif %}
-                <!-- <td><a href="{% url 'task' task.id %}">View</a></td> -->
-                <!--Removed bcz its redundant-->
-                <td><a href="{% url 'task-update' task.id %}">Update</a></td>
-                <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
-            </tr>
-            {% empty %}
-            <!--If the list is empty-->
-            <p>You are free!</p>
-            {% endfor %}
-        </table>
+
+
+            </a>
     </div>
+    {% empty %}
+    <!--If the list is empty-->
+    <p>You are free!</p>
+    {% endfor %}
+</div>
+
 {% endblock body %}
