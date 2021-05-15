@@ -25,6 +25,7 @@
             background-color: black;
             -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0,21);
             box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0,21);
+            border-radius: 5px 5px 5px 5px;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -51,11 +52,16 @@
         .task-wrapper {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content:space-between;
             padding:20px;
             background-color: black;
             border-top: 1px solid rgb(51, 47, 47);
             color: black;
+        }
+        .duedate-wrapper{
+            display: flex !important ; 
+            justify-content: right !important;
+            font-size: 10px;
         }
 
         .task-title{
@@ -107,6 +113,8 @@
             border-radius: 5px;
             padding: 10px;
             width: 90%;
+            background-color: rgb(29, 27, 27);
+            color: white;
         } 
 
         label {
@@ -114,11 +122,10 @@
             display: block;
         }
 
-        .button{
-            
+        .button{ 
              border: 1px solid rgb(51, 47, 47);
-             background-color: #FAFAFA;
-             /* color: white; */
+             background-color: rgb(29, 27, 27);
+             color: white;
              padding: 10px;
              font-size: 14px;
              border-radius: 5px;

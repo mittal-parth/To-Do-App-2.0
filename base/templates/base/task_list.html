@@ -21,7 +21,7 @@
     <form id="input-form" action="" method="GET">
         <!-- value = “{{search_input}}” allows us to keep the last data that was searched for, in the text box-->
         <input type="text" name="search_area" value="{{search_input}}">
-        <button class = "button" type="submit"><i class="fa fa-search"></i></button>
+        <button class="button" type="submit"><i class="fa fa-search"></i></button>
     </form>
     <a id="add-link" href="{% url 'task-create' %}"><i class="fa fa-plus-circle"></i></a>
 </div>
@@ -44,6 +44,12 @@
                 <div class="task-incomplete-icon"></div>
                 <a href="{% url 'task-update' task.id %}">{{task}}</a>
             </div>
+            <div class="duedate-wrapper">
+                {% if task.duedate %}
+                <p>{{task.duedate}}</p>
+                {% endif %}
+            </div>
+
             <a class="delete-link" href="{% url 'task-delete' task.id %}"><i class="fa fa-trash"></i>
                 {% endif %}
 

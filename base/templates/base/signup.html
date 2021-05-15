@@ -8,9 +8,9 @@
     <form action="" method="POST">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Sign Up" class="button">
+        <input type="submit" value="Sign Up" class="button" >
     </form>
-    <p>Already have an account? <a href="{% url 'login' %}"> <i>Login</i></a></p>
+    <p>Already have an account? <a href="{% url 'login' %}"> <i style="color:rgb(55, 201, 201)">Login</i></a></p>
 </div>
 
 {% endblock body %}
