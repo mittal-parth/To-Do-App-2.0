@@ -44,11 +44,12 @@
                 <div class="task-incomplete-icon"></div>
                 <a href="{% url 'task-update' task.id %}">{{task}}</a>
             </div>
-            <div class="duedate-wrapper">
+            <!--Due Date-->
+            <!-- <div class="duedate-wrapper">
                 {% if task.duedate %}
                 <p>{{task.duedate}}</p>
                 {% endif %}
-            </div>
+            </div> -->
 
             <a class="delete-link" href="{% url 'task-delete' task.id %}"><i class="fa fa-trash"></i>
                 {% endif %}

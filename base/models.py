@@ -4,6 +4,7 @@ import datetime
 # Create your models here.
 class Task(models.Model):
     #Foreign Key = ManyToOneField, One user many other fields
+    #Many Tasks have one User                               
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank = True, null = True) 
     title = models.CharField(max_length = 100)
     description =  models.TextField(null= True, blank = True)
