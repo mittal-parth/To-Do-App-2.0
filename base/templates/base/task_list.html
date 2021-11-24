@@ -10,7 +10,7 @@
         <!--last part appends an s to 'task' if count > 1-->
     </div>
     {% if request.user.is_authenticated%}
-    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'account_logout' %}">Logout</a>
     {% else %}
     <a href="{% url 'login' %}">Login</a>
     {% endif %}
@@ -18,12 +18,12 @@
 
 
 <div id="search-add-wrapper">
+    <a id="add-link" href="{% url 'task-create' %}"><i class="fa fa-plus-circle"></i></a>
     <form id="input-form" action="" method="GET">
         <!-- value = “{{search_input}}” allows us to keep the last data that was searched for, in the text box-->
         <input type="text" name="search_area" value="{{search_input}}">
         <button class="button" type="submit"><i class="fa fa-search"></i></button>
     </form>
-    <a id="add-link" href="{% url 'task-create' %}"><i class="fa fa-plus-circle"></i></a>
 </div>
 
 
@@ -59,7 +59,9 @@
     </div>
     {% empty %}
     <!--If the list is empty-->
-    <p>You are free!</p>
+    <div class="update-form-wrapper">
+        <p>You are free!</p>
+    </div>
     {% endfor %}
 </div>
 

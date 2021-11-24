@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
-from django.urls import reverse_lazy # Just to redirect from one page to another
+# Just to redirect from one page to another
+from django.urls import reverse_lazy 
 
 from django.contrib.auth.views import LoginView
-from django.contrib.auth.mixins import LoginRequiredMixin  
-from django.contrib.auth.forms import UserCreationForm 
-from django.contrib.auth import login # To enable a user to directly login after registration
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
+# To enable a user to directly login after registration
+from django.contrib.auth import login
 from .models import Task
 # Create your views here.
 
@@ -41,22 +43,27 @@ class SignUpPage(FormView):
 
 class TaskList(LoginRequiredMixin ,ListView):
     model = Task
-    context_object_name = 'tasks' # This is the name of the list that is passed onto the template
-                                  # Its by default called object_list
+    # This is the name of the list that is passed onto the template
+    # Its by default called object_list
+    context_object_name = 'tasks' 
 
     # Only gives data pertaining to that user
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["tasks"] = context["tasks"].filter(user = self.request.user) # Filtering it out for that user
-        context["count"] = context["tasks"].filter(complete = False).count() # Number of tasks that are undone
-                                                                             # Here we can pass more data than defined in model
+        # Filtering it out for that user
+        context["tasks"] = context["tasks"].filter(user = self.request.user) 
+
+        # Number of tasks that are undone
+        # Here we can pass more data than defined in model
+        context["count"] = context["tasks"].filter(complete = False).count() 
 
         # Note that each time we are changing the context, 
         # we are doing the over the already changed value
         # Get what was typed in 'search_area', or by defualt keep it empty
         search_input = self.request.GET.get('search_area') or ''
         if search_input:
-            context["tasks"] = context["tasks"].filter(title__icontains = search_input) # icontains is Django thing and is self explanatory
+            # icontains is Django thing and is self explanatory
+            context["tasks"] = context["tasks"].filter(title__icontains = search_input) 
         
         # Pass that back to the template
         context["search_input"] = search_input 
@@ -65,7 +72,8 @@ class TaskList(LoginRequiredMixin ,ListView):
 class TaskDetail(LoginRequiredMixin,DetailView):
     model = Task
     context_object_name = 'task'
-    template_name = 'base/task.html' #default is task_detail
+    # default is task_detail
+    template_name = 'base/task.html' 
 
 class TaskCreate(LoginRequiredMixin,CreateView):
     model = Task

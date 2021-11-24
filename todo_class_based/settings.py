@@ -40,6 +40,7 @@ AUTHENTICATION_BACKENDS = [
 
 INSTALLED_APPS = [
     'base.apps.BaseConfig',
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -152,3 +153,12 @@ LOGIN_URL = 'login'
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'tasks'
+
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '' #Email-id of the gmail account
+EMAIL_HOST_PASSWORD = '' #Password associated with gmail account

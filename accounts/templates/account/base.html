@@ -1,14 +1,136 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block head_title %}{% endblock %}</title>
-    {% block extra_head %}
-    {% endblock %}
-  </head>
-  <body>
+
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>ToDo App | {% block head_title %}{% endblock %}</title>
+
+  <style>
+    body {
+      background-color: #25274D;
+      font-family: 'Nunito', sans-serif;
+      padding-top: 50px;
+    }
+
+    .container {
+      max-width: 550px;
+      /* Makes it responsive */
+      margin: auto;
+      /* background-color: #464866; */
+      background-color: black;
+      -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0, 21);
+      box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0, 21);
+      border-radius: 5px 5px 5px 5px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Nunito', sans-serif;
+      color: white;
+    }
+
+    a,
+    p,
+    ul {
+      color: white;
+      text-decoration: none;
+
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+      background: linear-gradient(90deg, #656785 0%, #484b74 43%, #353977 100%);
+    }
+
+    .header-bar a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .form-bar {
+      margin-left: 15px;
+    }
+
+    #add-link {
+      color: rgb(123, 233, 90);
+      font-size: 25px;
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    textarea {
+      margin-right: 3px;
+      border: 1px solid rgb(51, 47, 47);
+      border-radius: 5px;
+      padding: 10px;
+      width: 90%;
+      background-color: rgb(29, 27, 27);
+      color: white;
+    }
+
+    label {
+      padding-top: 10px;
+      display: block;
+    }
+
+    .button {
+      border: 1px solid rgb(51, 47, 47);
+      background-color: rgb(29, 27, 27);
+      color: white;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    #input-form {
+      display: flex;
+    }
+
+    .update-form-wrapper,
+    .delete-form-wrapper {
+      background-color: black;
+      padding: 20px;
+    }
+
+    /* .delete-form-wrapper{
+            display: flex;
+        } */
+  </style>
+  {% block extra_head %}
+  {% endblock %}
+</head>
+
+<body>
+  <div class="container">
     {% block body %}
 
-    {% if messages %}
+    <!-- <div>
+      <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+        {% endif %}
+      </ul>
+    </div> -->
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- {% if messages %}
     <div>
       <strong>Messages:</strong>
       <ul>
@@ -17,24 +139,13 @@
         {% endfor %}
       </ul>
     </div>
-    {% endif %}
+    {% endif %} -->
 
-    <div>
-      <strong>Menu:</strong>
-      <ul>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-        {% else %}
-        <li><a href="{% url 'account_login' %}">Sign In</a></li>
-        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-        {% endif %}
-      </ul>
-    </div>
-    {% block content %}
-    {% endblock %}
     {% endblock %}
     {% block extra_body %}
     {% endblock %}
-  </body>
+  </div>
+</body>
+
 </html>
+
