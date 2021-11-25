@@ -26,7 +26,7 @@ SECRET_KEY = 'hcm_gcatx-_6(&d37(s2$_8g@1=bc5*h_-uekot1c3=-xnu@df'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['7481-2405-201-d004-c062-2055-abaa-524b-a565.ngrok.io', 'localhost']
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -146,7 +146,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'account_login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -162,6 +162,7 @@ LOGIN_REDIRECT_URL = 'tasks'
 
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
+# For managing password reset
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
@@ -169,3 +170,11 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = '' #Email-id of the gmail account
 EMAIL_HOST_PASSWORD = '' #Password associated with gmail account
 
+# Managing Media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

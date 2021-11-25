@@ -48,7 +48,7 @@ class TaskDetail(LoginRequiredMixin,DetailView):
 class TaskCreate(LoginRequiredMixin,CreateView):
     model = Task
     # Creates a model form by defualt. Only selected fields are passed
-    fields = ['title', 'description', 'complete', 'duedate'] 
+    fields = ['title', 'description', 'complete', 'duedate', 'image'] 
     
     # If everything goes correctly, redirect the user to tasks
     success_url = reverse_lazy('tasks') 
@@ -61,7 +61,7 @@ class TaskCreate(LoginRequiredMixin,CreateView):
 
 class TaskUpdate(LoginRequiredMixin,UpdateView):
     model = Task
-    fields = ['title', 'description', 'complete', 'duedate']
+    fields = ['title', 'description', 'complete', 'duedate', 'image']
     success_url = reverse_lazy('tasks')
 
 class TaskDelete(LoginRequiredMixin,DeleteView):

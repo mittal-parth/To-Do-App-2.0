@@ -10,6 +10,7 @@ class Task(models.Model):
     description =  models.TextField(null= True, blank = True)
     complete = models.BooleanField(default = False)
     duedate = models.DateTimeField(auto_now=False, auto_now_add=False, blank = True, null = True)
+    image = models.ImageField(blank=True, null=True, upload_to="images/")
 
     def __str__(self):
         return self.title
