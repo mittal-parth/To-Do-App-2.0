@@ -31,6 +31,13 @@ _After ensuring that we are in a virtual environment (If not, use `workon test`)
 <p>Enter desired credentials</p>
 <br>
 
+<h3>To use emailing features</h3>
+<p>Note: It currently uses Gmail's smtp <br>
+Head to <a href="https://github.com/mittal-parth/To-Do-App-2.0/blob/main/todo_class_based/settings.py#L170-L171">settings.py </a> <br>
+Enter the details at EMAIL_HOST_USER and EMAIL_HOST_PASSWORD <br>
+Follow <a href="https://devanswers.co/allow-less-secure-apps-access-gmail-account/">this</a> to enable sending mails via gmail</p>
+<br>
+
 <h3>Admin Site:</h3>
 
 http://127.0.0.1:8000/admin
