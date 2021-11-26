@@ -2,7 +2,8 @@
 
 A To-Do App with OAuth that can be installed as a PWA. It supports media and Speech to text input features as well.
 
-![Demo](Demo.gif)
+https://user-images.githubusercontent.com/76661350/143526700-4fbf524e-33d1-4e70-b3ec-fd64835dc9c5.mp4
+
 
 <br>
 <h2>Installation Guide</h2>
