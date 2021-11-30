@@ -31,7 +31,7 @@ _After ensuring that we are in a virtual environment (If not, use `workon test`)
 <p>Enter desired credentials</p>
 <br>
 
-<h3>To use emailing features</h3>
+<h3>To use emailing features (optional)</h3>
 <p>Note: It currently uses Gmail's smtp <br>
 Head to <a href="https://github.com/mittal-parth/To-Do-App-2.0/blob/main/todo_class_based/settings.py#L170-L171">settings.py </a> <br>
 Enter the details at EMAIL_HOST_USER and EMAIL_HOST_PASSWORD <br>
@@ -43,6 +43,15 @@ Follow <a href="https://devanswers.co/allow-less-secure-apps-access-gmail-accoun
 http://127.0.0.1:8000/admin
 
 <br>
+<h2>Tech Stack</h2>
+<code><img height="40" width="40" src="https://img.icons8.com/color/48/000000/python--v1.png" alt="Python"></code>
+<code><img height="40" width="40" src="https://user-images.githubusercontent.com/76661350/143919769-d61dd74a-ef98-49db-b1d0-781cb2df501c.png"></code>
+<code><img height="45" width="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" alt="HTML"></code>
+<code><img height="40" width="40" src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png" alt="CSS"></code>
+<code><img height="40" width="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" alt="Javascript"></code>
+<br>
+<br>
+
 <h2>Implemented Features</h2>
 <ul>
     <li>User Authentication with OAuth</li>
@@ -52,8 +61,8 @@ http://127.0.0.1:8000/admin
     <li>Create, Read, Update and Delete Tasks</li>
     <li>Search for Tasks</li>
 </ul>
-<br>
 
+<br>
 <br>
 <h2>References:</h2>
 <a href="https://github.com/silviolleite/django-pwa">Django PWA</a><br>
