@@ -1,5 +1,5 @@
 {% extends 'base/main.html' %}
-
+{% load static %} 
 {% block title %}Update{% endblock title %}
 
 {%block body %}
@@ -15,7 +15,8 @@
         <!--.as_p allows to beautify the form automatically-->
         <p><label for="title">Title</label>{{form.title}}</p>
         <p><label for="description">Description</label> {{form.description}}
-            <div class="speech-content-mic"> <i class="speech-mic fa fa-microphone" style="color: white;"></i></div>
+            <div class="speech-content-mic" id="mic-icon"> <i class="speech-mic fa fa-microphone" style="color: white;"></i></div>
+            <div class="speech-mic-works" style="display:none"><img src="/media/images/mic-animate2.gif" alt="gif" height="40px" width="40px"/></div>
         </p>
         <p><label for="complete">Complete</label>{{form.complete}}</p>
         <p><label for="duedate">Duedate</label>{{form.duedate}}</p>
@@ -40,16 +41,19 @@
         var textArea = $('#id_description');
         var textAreaID = 'id_description';
 
-        $('.speech-mic').click(function () {
+        $('.speech-content-mic').click(function () {
             startRecognition();
+            $('.speech-content-mic').hide();
+            $('.speech-mic-works').show();
         });
 
         $('.speech-mic-works').click(function () {
+            $('.speech-mic-works').hide();
+            $('.speech-content-mic').show();
             recognition.stop();
         });
 
         var startRecognition = function () {
-            $('.speech-content-mic').removeClass('speech-mic').addClass('speech-mic-works');
             textArea.focus();
             recognition.start();
         };
@@ -71,7 +75,7 @@
         };
 
         recognition.onend = function () {
-            $('.speech-content-mic').removeClass('speech-mic-works').addClass('speech-mic');
+            $('.speech-content-mic').removeClass('speech-mic-works').addClass('speech-content-mic');
         };
 
         insertAtCaret = function (areaId, text) {
